@@ -14,6 +14,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -31,6 +33,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener
 {
+    TextView mAppTitle;
     ImageButton mBtnSearch;
     Button mBtnLatest, mBtnNowPlaying, mBtnUpcoming;
     EditText mEditTextSearch;
@@ -113,6 +116,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initViews()
     {
+        mAppTitle = findViewById(R.id.app_title);
         mBtnLatest = findViewById(R.id.btn_latest);
         mBtnSearch = findViewById(R.id.btn_search);
         mBtnNowPlaying = findViewById(R.id.btn_now_playing);
@@ -120,9 +124,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mEditTextSearch = findViewById(R.id.edit_search);
         mRecyclerView = findViewById(R.id.my_recycler_view);
 
-        View current = getCurrentFocus();
-        if(current != null)
-            current.clearFocus();
+        //mAppTitle.requestFocus();
 
         mBtnSearch.setOnClickListener(this);
         mBtnLatest.setOnClickListener(this);
@@ -132,32 +134,56 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void onClick(View view)
     {
-        switch (view.getId())
-        {
-            case R.id.btn_latest:
-                String apiUrl ="https://api.themoviedb.org/3/movie/popular?api_key=e1b80108eed81c20bcd6332222b8e0aa&language=en-US&page=1";
-                new CheckConnectionStatus().execute(apiUrl);
-                break;
-            case R.id.btn_now_playing:
-                apiUrl="https://api.themoviedb.org/3/movie/now_playing?api_key=e1b80108eed81c20bcd6332222b8e0aa&language=en-US&page=1";
-                new CheckConnectionStatus().execute(apiUrl);
-                break;
-            case R.id.btn_upcoming:
-                apiUrl="https://api.themoviedb.org/3/movie/upcoming?api_key=e1b80108eed81c20bcd6332222b8e0aa&language=en-US&page=1";
-                new CheckConnectionStatus().execute(apiUrl);
-                break;
-            case R.id.btn_search:
-                String  x;
-                x = mEditTextSearch.getText().toString();
-                if(x.isEmpty())
-                {
-                    Toast.makeText(this,"Empty field",Toast.LENGTH_SHORT).show();
-                    break;
-                }
-                apiUrl="https://api.themoviedb.org/3/search/movie?language=en-US&query=" + x + "&page=1&include_adult=false" ;
+//        switch (view.getId())
+//        {
+//            case R.id.btn_latest:
+//                String apiUrl ="https://api.themoviedb.org/3/movie/popular?api_key=e1b80108eed81c20bcd6332222b8e0aa&language=en-US&page=1";
+//                new CheckConnectionStatus().execute(apiUrl);
+//                break;
+//            case R.id.btn_now_playing:
+//                apiUrl="https://api.themoviedb.org/3/movie/now_playing?api_key=e1b80108eed81c20bcd6332222b8e0aa&language=en-US&page=1";
+//                new CheckConnectionStatus().execute(apiUrl);
+//                break;
+//            case R.id.btn_upcoming:
+//                apiUrl="https://api.themoviedb.org/3/movie/upcoming?api_key=e1b80108eed81c20bcd6332222b8e0aa&language=en-US&page=1";
+//                new CheckConnectionStatus().execute(apiUrl);
+//                break;
+//            case R.id.btn_search:
+//                String str;
+//                str = mEditTextSearch.getText().toString();
+//                if(str.isEmpty())
+//                {
+//                    Toast.makeText(this,"Empty field",Toast.LENGTH_SHORT).show();
+//                    break;
+//                }
+//                apiUrl="https://api.themoviedb.org/3/search/movie?language=en-US&query=" + str + "&page=1&include_adult=false" ;
+//                new CheckConnectionStatus().execute(apiUrl);
+//                mEditTextSearch.setText("");
+//                break;
+//        }
+        String apiUrl;
+        if(view.getId() == R.id.btn_latest) {
+            apiUrl ="https://api.themoviedb.org/3/movie/popular?api_key=e1b80108eed81c20bcd6332222b8e0aa&language=en-US&page=1";
+            new CheckConnectionStatus().execute(apiUrl);
+        }
+        else if(view.getId() == R.id.btn_now_playing) {
+            apiUrl="https://api.themoviedb.org/3/movie/now_playing?api_key=e1b80108eed81c20bcd6332222b8e0aa&language=en-US&page=1";
+            new CheckConnectionStatus().execute(apiUrl);
+        }
+        else if(view.getId() == R.id.btn_upcoming) {
+            apiUrl="https://api.themoviedb.org/3/movie/upcoming?api_key=e1b80108eed81c20bcd6332222b8e0aa&language=en-US&page=1";
+            new CheckConnectionStatus().execute(apiUrl);
+        }
+        else if(view.getId() == R.id.btn_search) {
+            String str;
+            str = mEditTextSearch.getText().toString();
+            if(TextUtils.isEmpty(str))
+                Toast.makeText(this,"Empty field",Toast.LENGTH_SHORT).show();
+            else {
+                apiUrl="https://api.themoviedb.org/3/search/movie?language=en-US&query=" + str + "&page=1&include_adult=false" ;
                 new CheckConnectionStatus().execute(apiUrl);
                 mEditTextSearch.setText("");
-                break;
+            }
         }
     }
 }
