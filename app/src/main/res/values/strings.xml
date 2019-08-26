@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TMDBApp</string>
+    <string name="moviehub">MovieHub</string>
+    <string name="enter_movie_name">Enter movie name</string>
+    <string name="latest">Latest</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="upcoming">Upcoming</string>
+</resources>
