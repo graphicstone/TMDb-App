@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.tmdbapp.model.MovieDetails;
 
 import java.util.ArrayList;
 
@@ -37,8 +38,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.movieTitle.setText(mMovieList.get(position).getOrginal_title());
         holder.movieTitle.setTag(position);
         Glide.with(mContext).load("https://image.tmdb.org/t/p/w500/"+ mMovieList.get(position).getPoster_path()).into(holder.movImg);
-
-
     }
 
     @Override
@@ -48,7 +47,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     class MyViewHolder extends RecyclerView.ViewHolder
     {
-
         ImageView movImg;
         TextView movieTitle;
 
