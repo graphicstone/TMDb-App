@@ -67,6 +67,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     buffer.append("Release Date : ").append(mMovieList.get(pos).getRelease_date()).append("\n\n");
                     buffer.append("Rating : ").append( mMovieList.get(pos).getVote_average()).append("\n");
 
+                    mContext.setTheme(R.style.AlertDialogCustom);
+
                     new AlertDialog.Builder(mContext)
                             .setTitle(mMovieList.get(pos).getOrginal_title())
                             .setMessage(buffer.toString())

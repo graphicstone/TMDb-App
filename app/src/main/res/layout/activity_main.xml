@@ -22,7 +22,7 @@
             android:textAlignment="center"
             android:textStyle="bold"
             android:text="@string/moviehub"
-            android:textColor="#212121"
+            android:textColor="#FAFAFA"
             android:textSize="@dimen/sp_32"/>
 
     </LinearLayout>
@@ -32,11 +32,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="@dimen/dp_10"
-        android:layout_marginRight="@dimen/dp_10">
+        android:layout_marginRight="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/dp_10">
 
         <EditText
             android:id="@+id/edit_search"
             android:layout_width="wrap_content"
+            android:autofillHints="@string/enter_some_text"
+            android:inputType="text"
             android:layout_height="@dimen/dp_40"
             android:background="@drawable/search_tv_bgn"
             android:paddingStart="@dimen/dp_10"
@@ -50,7 +53,7 @@
             android:layout_width="@dimen/dp_40"
             android:layout_height="@dimen/dp_40"
             android:layout_marginStart="@dimen/dp_10"
-            android:background="@drawable/ic_search_balck_24dp" >
+            android:background="@drawable/ic_search_white_24dp" >
         </ImageButton>
 
     </LinearLayout>
@@ -67,6 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textStyle="bold"
+            android:textColor="#FAFAFA"
             android:background="@drawable/btn_bgn"
             android:text="@string/latest">
         </Button>
@@ -78,6 +82,7 @@
             android:layout_marginStart="@dimen/dp_10"
             android:layout_weight="1"
             android:textStyle="bold"
+            android:textColor="#FAFAFA"
             android:background="@drawable/btn_bgn"
             android:text="@string/now_playing">
         </Button>
@@ -90,6 +95,7 @@
             android:layout_marginStart="@dimen/dp_10"
             android:layout_weight="1"
             android:textStyle="bold"
+            android:textColor="#FAFAFA"
             android:background="@drawable/btn_bgn"
             android:text="@string/upcoming">
         </Button>
@@ -100,6 +106,7 @@
         android:id="@+id/my_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#121212"
         android:layout_margin="@dimen/dp_10"/>
 
 </LinearLayout>
