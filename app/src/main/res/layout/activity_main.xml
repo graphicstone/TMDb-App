@@ -38,7 +38,6 @@
         <EditText
             android:id="@+id/edit_search"
             android:layout_width="wrap_content"
-            android:autofillHints="@string/enter_some_text"
             android:inputType="text"
             android:layout_height="@dimen/dp_40"
             android:background="@drawable/search_tv_bgn"
@@ -110,4 +109,3 @@
         android:layout_margin="@dimen/dp_10"/>
 
 </LinearLayout>
-

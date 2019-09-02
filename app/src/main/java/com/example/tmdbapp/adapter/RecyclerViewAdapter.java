@@ -1,4 +1,4 @@
-package com.example.tmdbapp;
+package com.example.tmdbapp.adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.tmdbapp.R;
 import com.example.tmdbapp.model.MovieDetails;
 
 import java.util.ArrayList;

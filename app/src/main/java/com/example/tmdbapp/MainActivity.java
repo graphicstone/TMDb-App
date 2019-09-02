@@ -1,5 +1,6 @@
 package com.example.tmdbapp;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +18,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tmdbapp.adapter.RecyclerViewAdapter;
 import com.example.tmdbapp.model.MovieDetails;
 
 import org.json.JSONArray;
@@ -44,8 +46,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if(getSupportActionBar()!=null)
-            getSupportActionBar().hide();
+
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         initViews();
         Log.i("info", String.valueOf(Color.parseColor("#223344")));
