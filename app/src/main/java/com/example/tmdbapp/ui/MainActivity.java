@@ -1,4 +1,4 @@
-package com.example.tmdbapp;
+package com.example.tmdbapp.ui;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +18,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tmdbapp.R;
 import com.example.tmdbapp.adapter.RecyclerViewAdapter;
 import com.example.tmdbapp.model.MovieDetails;
 
